@@ -1,0 +1,40 @@
+.homepage{
+  height: 100vh;
+  background-image:linear-gradient(to bottom, rgba(32, 35, 47, 0.52), rgba(57, 44, 54, 0.73)),
+   url('https://motuslearning.com/wp-content/uploads/2022/01/shutterstock-1041475570-1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.homepage h2{
+  width: 90%;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.homepage section{
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2.5rem;
+  color: white;
+}
+
+.tracking{
+  text-transform: uppercase;
+  background-color: green;
+  padding: 20px;
+  text-decoration: none;
+  border-radius: 15px;
+
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

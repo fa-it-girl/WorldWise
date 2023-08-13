@@ -1,0 +1,22 @@
+.product{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.product img{
+  width: 60%;
+  height: 50vh;
+  margin-left: 20%;
+}
+
+.product p{
+  font-size: 20px;
+}
+
+.productPage{
+  background-color: #555555;
+  height: 100vh;
+}

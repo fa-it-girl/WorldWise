@@ -1,0 +1,57 @@
+.login{
+  border: 1px solid black;
+  width: 30%;
+  background-color: grey;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+}
+
+.login h1{
+  text-align: center;
+  color: white;
+}
+
+.form input{
+  width: 80%;
+  height: 3vh;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 5px;
+}
+
+.form label{
+  margin-left: 10%;
+  margin-bottom: 5%;
+}
+
+.form button{
+  width: 82%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  height: 5vh;
+  border-radius: 5px;
+}
+
+.loginContainer{
+  background-color:#555555;
+  height: 100vh;
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  .login{
+    width: 80%;
+    left: 10%;
+  }
+
+  .form button{
+    width: 85%;
+    margin-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: 4vh;
+  }
+}
