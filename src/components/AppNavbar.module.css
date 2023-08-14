@@ -1,0 +1,6 @@
+.appNavbar{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 20%;
+  margin-left: 40%;
+}

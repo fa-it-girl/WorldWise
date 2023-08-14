@@ -1,7 +1,8 @@
 import { useState } from "react"
 import classes from './Login.module.css'
-
+import Navbar from '../components/Navbar'
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -34,7 +35,7 @@ const Login = () => {
   }
   return (
     <div className={classes.loginContainer}>
-
+      <Navbar />
       <div className={classes.login}>
       <h1>Login</h1>
       <form className={classes.form}>
@@ -50,7 +51,7 @@ const Login = () => {
           placeholder="Enter your password"
           onChange={userPasswordInput}/>
           {!passwordValidation && <p>password needs to be 6 </p>}<br />
-        <button type="submit" onClick={formSubmitHandler}>Sing in</button>
+        <Link to='/app'><button type="submit" onClick={formSubmitHandler}>Sing in</button></Link>
       </form>
 
     </div>
