@@ -1,11 +1,20 @@
+import PropTypes from 'prop-types';
 
-
-const Country = () => {
+const Country = ({country}) => {
   return (
-    <h1>
-     countries
-    </h1>
+    <li>
+     <span>{country.country}</span>
+     <span>{country.emoji}</span>
+    </li>
   )
 }
+
+Country.propTypes = {
+  country: PropTypes.shape({
+    emoji: PropTypes.string.isRequired,
+     country: PropTypes.string.isRequired,
+
+  }).isRequired,
+};
 
 export default Country

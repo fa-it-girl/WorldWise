@@ -1,4 +1,5 @@
 
+import { Outlet } from 'react-router-dom'
 import AppNavbar from './AppNavbar'
 import Logo from './Logo'
 import classes from './SideBar.module.css'
@@ -10,6 +11,8 @@ const SideBar = () => {
       <Logo />
 
        <AppNavbar />
+
+       <Outlet />
 
         <footer className={classes.footer}>
           <p className={classes.copyright}>
