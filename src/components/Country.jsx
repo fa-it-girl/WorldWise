@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Country = ({country}) => {
+
   return (
     <li>
      <span>{country.country}</span>

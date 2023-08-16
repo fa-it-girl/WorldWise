@@ -1,9 +1,10 @@
 
 import PropTypes from 'prop-types';
 import Country from './Country';
+import { useCities } from '../contexts/CitiesContext';
 
-const CountryItem = ({ isLoading, cities }) => {
-
+const CountryItem = () => {
+  const {cities, isLoading} = useCities()
   const countries = cities.reduce((arr, city) => {
     if (!arr.map((el) => el.country).includes(city.country))
       return [...arr, { country: city.country, emoji: city.emoji }];

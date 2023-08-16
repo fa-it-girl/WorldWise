@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import City from './City'
 import Message from './Message';
+import { useCities } from '../contexts/CitiesContext';
 
-const CityItem = ({ cities, isLoading }) => {
-
+const CityItem = () => {
+const {cities, isLoading} = useCities();
   if (cities.length === 0) return <Message />
   return (
     <div>
@@ -27,7 +28,7 @@ CityItem.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      // Add other properties based on your data structure
+
     })
   ).isRequired,
   isLoading: PropTypes.bool.isRequired,
