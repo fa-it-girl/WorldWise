@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-
+import classes from './Country.module.css'
 const Country = ({country}) => {
 
   return (
-    <li>
-     <span>{country.country}</span>
+    <li className={classes.countryItem}>
+     <span className={classes.countryName}>{country.country}</span>
      <span>{country.emoji}</span>
     </li>
   )

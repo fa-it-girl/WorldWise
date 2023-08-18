@@ -1,0 +1,32 @@
+.form{
+  width: 70%;
+  height: 60vh;
+  background-color: grey;
+}
+
+.form label{
+  font-size: 20px;
+  margin-left: 10%;
+
+}
+
+.form input, textarea{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  height: 10%;
+}
+
+.form textarea{
+  height: 15%;
+}
+
+._primary_1m66n_12{
+  float: left;
+  
+}
+
+._back_1m66n_18{
+ float: right;
+}

@@ -1,6 +1,8 @@
 .appNavbar{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 20%;
-  margin-left: 40%;
+  width: 30%;
+  /* margin-left: 20%; */
+  margin-top: 5%;
+  margin-bottom: 2%;
 }

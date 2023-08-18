@@ -6,7 +6,7 @@ import PageNotFound from "./pages/PageNotFound"
 import CountryItem from "./components/CountryItem"
 import AppLayout from "./pages/AppLayout"
 import Login from "./pages/Login"
-
+import 'leaflet/dist/leaflet.css';
 import CityItem from "./components/CityItem"
 import CityDescription from "./components/CityDescription"
 import Form from "./components/Form"
@@ -66,5 +66,8 @@ function App() {
     </>
   )
 }
+
+
+
 
 export default App

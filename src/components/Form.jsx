@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Button from "./Button"
 import { useNavigate } from "react-router-dom"
-
+import classes from './Form.module.css'
 
 const Form = () => {
 
@@ -9,7 +9,7 @@ const Form = () => {
   const [notes, setNotes] = useState('')
   const navigate = useNavigate()
   return (
-    <form>
+    <form className={classes.form}>
       <label>City</label><br />
       <input
         type="text"
@@ -24,7 +24,7 @@ const Form = () => {
           onChange={(e) => setNotes(e.target.value)}
           value={notes}
         /><br />
-      <Button type='primary'>add</Button>
+      <Button type='primary' className={classes.primary}>add</Button>
       <Button type='back' onClick={(e)=>{ e.preventDefault(); navigate(-1)}}>&larr; back</Button>
     </form>
   )
