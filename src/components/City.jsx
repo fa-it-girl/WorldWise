@@ -12,6 +12,9 @@ const City = ({city}) => {
         <h3 className={classes.name}>{city.cityName}</h3>
         <time>{city.date}</time>
         <button className={classes.deleteBtn}>&times;</button>
+        <button>test</button>
+        {/* sil sonra */}
+
       </Link>
 
   </li>
