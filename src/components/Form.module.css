@@ -1,32 +1,44 @@
-.form{
-  width: 70%;
-  height: 60vh;
-  background-color: grey;
+.form {
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+  padding: 2rem 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.form label{
-  font-size: 20px;
-  margin-left: 10%;
-
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
 }
 
-.form input, textarea{
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  height: 10%;
+.buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
-.form textarea{
-  height: 15%;
+.flag {
+  position: absolute;
+  right: 1rem;
+  top: 2.7rem;
+  font-size: 2.8rem;
 }
 
-._primary_1m66n_12{
-  float: left;
-  
+.form.loading {
+  opacity: 0.3;
 }
 
-._back_1m66n_18{
- float: right;
+.form.loading button {
+  pointer-events: none;
+  background-color: var(--color-light--1);
+  border: 1px solid var(--color-light--1);
+  color: var(--color-dark--0);
+}
+
+:global(.react-datepicker) {
+  font-family: inherit;
+  font-size: 1.2rem;
 }

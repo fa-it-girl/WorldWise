@@ -1,43 +1,12 @@
+import styles from "./CountryItem.module.css";
 
-import PropTypes from 'prop-types';
-import Country from './Country';
-import { useCities } from '../contexts/CitiesContext';
-
-const CountryItem = () => {
-  const {cities, isLoading} = useCities()
-  const countries = cities.reduce((arr, city) => {
-    if (!arr.map((el) => el.country).includes(city.country))
-      return [...arr, { country: city.country, emoji: city.emoji }];
-    else return arr;
-  }, []);
-
-  if (cities.length === 0) return <p>Countries are loading</p>;
-
+function CountryItem({ country }) {
   return (
-    <div>
-      {isLoading ? (
-        <p>Countries are loading...</p>
-      ) : (
-        <ul>
-          {countries.map(country => (
-            <Country country={country} key={country} />
-          ))}
-        </ul>
-      )}
-    </div>
+    <li className={styles.countryItem}>
+      <span>{country.emoji}</span>
+      <span>{country.country}</span>
+    </li>
   );
-};
-
-CountryItem.propTypes = {
-  cities: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-
-      // Add other properties based on your data structure
-    })
-  ).isRequired,
-  isLoading: PropTypes.bool.isRequired,
-};
+}
 
 export default CountryItem;

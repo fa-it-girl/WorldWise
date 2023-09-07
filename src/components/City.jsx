@@ -1,37 +1,70 @@
-import PropTypes from 'prop-types';
-import classes from './CityItem.module.css'
-import { Link } from 'react-router-dom';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useCities } from "../contexts/CitiesContext";
+import BackButton from "./BackButton";
+import styles from "./City.module.css";
+import Spinner from "./Spinner";
 
-const City = ({city}) => {
+const formatDate = (date) =>
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
+  }).format(new Date(date));
 
-  console.log(city)
+function City() {
+  const { id } = useParams();
+  const { getCity, currentCity, isLoading } = useCities();
+
+  useEffect(
+    function () {
+      getCity(id);
+    },
+    [id, getCity]
+  );
+
+  const { cityName, emoji, date, notes } = currentCity;
+
+  if (isLoading) return <Spinner />;
+
   return (
-    <li >
-      <Link className={classes.cityItem} to={`${city.id}?lat=${city.position.lat}&lng=${city.position.lng}`}>
-        <span className={classes.emoji}>{city.emoji}</span>
-        <h3 className={classes.name}>{city.cityName}</h3>
-        <time>{city.date}</time>
-        <button className={classes.deleteBtn}>&times;</button>
-        <button>test</button>
-        {/* sil sonra */}
+    <div className={styles.city}>
+      <div className={styles.row}>
+        <h6>City name</h6>
+        <h3>
+          <span>{emoji}</span> {cityName}
+        </h3>
+      </div>
 
-      </Link>
+      <div className={styles.row}>
+        <h6>You went to {cityName} on</h6>
+        <p>{formatDate(date || null)}</p>
+      </div>
 
-  </li>
-  )
+      {notes && (
+        <div className={styles.row}>
+          <h6>Your notes</h6>
+          <p>{notes}</p>
+        </div>
+      )}
+
+      <div className={styles.row}>
+        <h6>Learn more</h6>
+        <a
+          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Check out {cityName} on Wikipedia &rarr;
+        </a>
+      </div>
+
+      <div>
+        <BackButton />
+      </div>
+    </div>
+  );
 }
 
-City.propTypes = {
-  city: PropTypes.shape({
-    emoji: PropTypes.string.isRequired,
-    cityName: PropTypes.string.isRequired,
-    date: PropTypes.instanceOf(Date).isRequired,
-    id: PropTypes.number.isRequired,
-    position: PropTypes.shape({
-      lat: PropTypes.number.isRequired,
-      lng: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-export default City
+export default City;
