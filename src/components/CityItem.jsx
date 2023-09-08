@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 import styles from "./CityItem.module.css";
+import PropTypes from 'prop-types';
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -36,5 +37,19 @@ function CityItem({ city }) {
     </li>
   );
 }
+
+CityItem.propTypes = {
+  city: PropTypes.shape({
+    cityName: PropTypes.string.isRequired,
+    emoji: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    position: PropTypes.shape({
+      lat: PropTypes.number.isRequired,
+      lng: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
+
 
 export default CityItem;

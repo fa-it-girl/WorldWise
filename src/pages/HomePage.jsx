@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import classes from "./HomePage.module.css"
-import Navbar from '../components/Navbar'
+import Navbar from '../components/PageNav'
 const HomePage = () => {
   return (
     <main className={classes.homepage}>

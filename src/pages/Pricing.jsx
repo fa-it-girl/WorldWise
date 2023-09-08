@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/PageNav"
 import classes from './Price.module.css'
 
 const Pricing = () => {

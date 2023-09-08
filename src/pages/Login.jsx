@@ -1,6 +1,6 @@
 import { useState } from "react"
 import classes from './Login.module.css'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/PageNav'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 

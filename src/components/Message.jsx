@@ -1,10 +1,14 @@
+import PropTypes from 'prop-types';
+import styles from "./Message.module.css";
 
-const Message = () => {
+function Message({ message }) {
   return (
-    <h1>
-     Add your first city by clicking on the map.
-    </h1>
-  )
+    <p className={styles.message}>
+      <span role="img">👋</span> {message}
+    </p>
+  );
 }
-
-export default Message
+Message.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+export default Message;
