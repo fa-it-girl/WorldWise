@@ -1,8 +1,15 @@
-# React + Vite
+# World Wise - Vite + React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+World Wise is a React web application built using Vite as a development tool. We can mark the places we've visited using the Leaflet.js library. When we click on a location on the map, a form will automatically open, allowing us to add it to our list.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone [https://github.com/your-username/world-wise.git](https://github.com/fa-it-girl/WorldWise)https://github.com/fa-it-girl/WorldWise
+
+2. Development
+    ```bash
+    npm run dev
