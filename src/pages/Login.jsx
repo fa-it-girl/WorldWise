@@ -1,63 +1,60 @@
-import { useState } from "react"
-import classes from './Login.module.css'
-import Navbar from '../components/PageNav'
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+import PageNav from "../components/PageNav";
+import { useAuth } from "../contexts/FakeAuthContext";
+import styles from "./Login.module.css";
 
-const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailValidation, setEmailValidation] = useState(true)
-  const [passwordValidation, setPasswordValidation] = useState(true)
-  const navigate = useNavigate()
-  const userEmailInput = (event) =>{
-    console.log(event.target.value)
-    setEmail(event.target.value)
+export default function Login() {
+  // PRE-FILL FOR DEV PURPOSES
+  const [email, setEmail] = useState("FaRahimova@gmail.com");
+  const [password, setPassword] = useState("1234567");
+
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (email && password) login(email, password);
   }
 
-  const userPasswordInput = (event) => {
-    setPassword(event.target.value)
+  useEffect(
+    function () {
+      if (isAuthenticated) navigate("/app", { replace: true });
+    },
+    [isAuthenticated, navigate]
+  );
 
-  }
-
-  const formSubmitHandler = (event) => {
-    event.preventDefault()
-    if (!email.includes('@') && email.length === 0){
-      setEmailValidation(false)
-    }
-
-    if(password.length < 6 && password.length === 0)
-    {
-      setPasswordValidation(false)
-    }
-
-    navigate('app')
-  }
   return (
-    <div className={classes.loginContainer}>
-      <Navbar />
-      <div className={classes.login}>
-      <h1>Login</h1>
-      <form className={classes.form}>
-        <label>Email</label><br />
-        <input
-         type="email"
-         placeholder="Enter your email"
-         onChange={userEmailInput}/>
-         {!emailValidation && <p>this email is not correct</p>}<br />
-        <label>Password</label><br/>
-        <input
-         type="password"
-          placeholder="Enter your password"
-          onChange={userPasswordInput}/>
-          {!passwordValidation && <p>password needs to be 6 </p>}<br />
-        <Link to='/app'><button type="submit" onClick={formSubmitHandler}>Sing in</button></Link>
+    <main className={styles.login}>
+      <PageNav />
+
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.row}>
+          <label htmlFor="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
+
+        <div className={styles.row}>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+        </div>
+
+        <div>
+          <Link to='/app'><Button type="primary">Login</Button></Link>
+        </div>
       </form>
-
-    </div>
-    </div>
-
-  )
+    </main>
+  );
 }
-
-export default Login

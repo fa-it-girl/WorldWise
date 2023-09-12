@@ -1,25 +1,27 @@
-import { Link } from "react-router-dom"
-import classes from "./HomePage.module.css"
-import Navbar from '../components/PageNav'
-const HomePage = () => {
+import { Link } from "react-router-dom";
+import PageNav from "../components/PageNav";
+import styles from "./Homepage.module.css";
+
+export default function Homepage() {
   return (
-    <main className={classes.homepage}>
-      <Navbar />
+    <main className={styles.homepage}>
+      <PageNav />
+
       <section>
-        <h1>You travel the world <br />
-          WorldWise keeps track of yourr adventures!
+        <h1>
+          You travel the world.
+          <br />
+          WorldWise keeps track of your adventures.
         </h1>
         <h2>
-          A world map rhats tracks your footsteps into every city you can thing of.
-          Never forget yout experiences, and show your friends how you have wondered the world
+          A world map that tracks your footsteps into every city you can think
+          of. Never forget your wonderful experiences, and show your friends how
+          you have wandered the world.
         </h2>
+        <Link to="/login" className="cta">
+          Start tracking now
+        </Link>
       </section>
-      <div className={classes.buttonContainer}>
-        <Link to='app' className={classes.tracking}>Start tracking now</Link>
-      </div>
-
     </main>
-  )
+  );
 }
-
-export default HomePage

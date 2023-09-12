@@ -1,4 +1,5 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import PropTypes from 'prop-types';
 import {
   MapContainer,
   TileLayer,
@@ -15,7 +16,7 @@ import { useGeolocation } from "../hooks/useGeolocation";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
 
-function Map() {
+function Map({position}) {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const {
@@ -49,7 +50,7 @@ function Map() {
       )}
 
       <MapContainer
-        center={mapPosition}
+        center={position}
         zoom={6}
         scrollWheelZoom={true}
         className={styles.map}
@@ -89,5 +90,11 @@ function DetectClick() {
     click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
 }
-
+Map.propTypes = {
+  position: PropTypes.shape({
+    position: PropTypes.number.isRequired,
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+  }).isRequired,
+};
 export default Map;
